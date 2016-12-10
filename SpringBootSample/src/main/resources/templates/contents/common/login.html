@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/layout">
+<body>
+	<div layout:fragment="partial">
+		<form method="post" th:action="@{/login}">
+			<div th:replace="fragments/input::text('username', 'ユーザー名', '')"></div>
+			<div th:replace="fragments/input::password('password', 'パスワード', '')"></div>
+			<div th:replace="fragments/input::submit('ログイン')"></div>
+		</form>
+	</div>
+</body>
+</html>

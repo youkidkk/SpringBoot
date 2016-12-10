@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta http-equiv="content-style-type" content="text/css">
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Ajax Sample</title>
+	</head>
+
+	<script type="text/javascript">
+		function onload() {
+			setInterval("getFeatueres()", 5000);
+		}
+		
+		var xmlHttp;
+		
+		function getFeatueres(){
+			xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = checkStatus;
+			xmlHttp.open("GET", "/ajax/getFeatures", true);
+			xmlHttp.send(null);
+		}
+		
+		function checkStatus(){
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+				document.getElementById("txt").value = xmlHttp.responseText;
+			}
+		}
+	</script>
+
+	<body onload="onload()">
+		<textarea id="txt" name="txt" rows="10"></textarea>
+		<input type="button" value="ボタン" onclick="getFeatueres()">
+	</body>
+</html>

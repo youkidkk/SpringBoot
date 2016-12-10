@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<div sec:authorize="isAuthenticated()" th:fragment="header">
+	<span>
+		<a th:href="@{/logout}">ログアウト</a>
+		<a th:href="@{/list}">一覧ページに戻る</a>
+	</span>
+	<span class="login_user_display">
+		<label>ログインユーザー：</label>
+		<span sec:authentication="principal.name"></span>
+	</span>
+</div>
+
+<div th:fragment="pagination(page, max_page)" class="pagination"
+		th:with="page_count=${#customEx.parseInt(@environment.getProperty('pagenation.count'))}">
+
+	<!-- 先頭ページヘのリンク -->
+	<span>
+		<a th:href="@{/list(page=1)}" class="pagination_item link">&lt;&lt;</a>
+		<label class="pagination_item no_link">・・・</label>
+	</span>
+
+	<!-- 途中のページ -->
+	<span th:each="i : ${#numbers.sequence(page - page_count, page + page_count)}">
+		<!-- 現在ページ以外 -->
+		<span th:if="${(page != i) and (i ge 1) and (i le max_page)}">
+			<a th:href="@{/list(page=${i})}" th:text="${i}" class="pagination_item link"></a>
+		</span>
+		<!-- 範囲外ページ -->
+		<span th:if="${(page != i) and ((i lt 1) or (i gt max_page))}">
+			<label th:href="@{/list(page=${i})}" th:text="${'　'}" class="pagination_item no_link"></label>
+		</span>
+		<!-- 現在ページと前後ページリンク -->
+		<span th:if="${page == i}">
+			<a th:if="${page ne 1}" th:href="@{/list(page=${i - 1})}" class="pagination_item current">&lt;</a>
+			<label th:unless="${page ne 1}" class="pagination_item no_link">　</label>
+			<label th:text="${i}" class="pagination_item current"></label>
+			<a th:if="${page ne max_page}" th:href="@{/list(page=${i + 1})}" class="pagination_item current">&gt;</a>
+			<label th:unless="${page ne max_page}" class="pagination_item no_link">　</label>
+		</span>
+	</span>
+
+	<!-- 末尾ページヘのリンク -->
+	<span>
+		<label class="pagination_item no_link" style="font-weight : normal;">・・・</label>
+		<a th:href="@{/list(page=${max_page})}" class="pagination_item link">&gt;&gt;</a>
+	</span>
+
+</div>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="submit(label)" class="input_submit">
+	<input type="submit" th:value="${label}" class="input_submit_body" />
+</div>
+
+<ul th:fragment="field_error_list(field_name)" class="field_error_list">
+	<li th:if="${#fields.hasErrors(field_name)}" th:each="err : ${#fields.errors(field_name)}" th:text="${err}"></li>
+</ul>
+
+<div th:fragment="item_label(label, field_name)" class="input_item_label">
+	<label th:text="${label}" th:for="${field_name}"></label>
+</div>
+
+<div th:fragment="text(field_name, label, value)" class="input_item">
+	<div th:replace="fragments/input::item_label(${label}, ${field_name})"></div>
+	<div class="input_item_body">
+		<input type="text" th:id="${field_name}" th:name="${field_name}" th:value="${value}" th:errorclass="field_error"/>
+		<ul th:replace="fragments/input::field_error_list(${field_name})"></ul>
+	</div>
+</div>
+
+<div th:fragment="password(field_name, label, value)" class="input_item">
+	<div th:replace="fragments/input::item_label(${label}, ${field_name})"></div>
+	<div class="input_item_body">
+		<input type="password" th:id="${field_name}" th:name="${field_name}" th:value="${value}" th:errorclass="field_error"/>
+		<ul th:replace="fragments/input::field_error_list(${field_name})"></ul>
+	</div>
+</div>
+
+<div th:fragment="number(field_name, label, value)" class="input_item">
+	<div th:replace="fragments/input::item_label(${label}, ${field_name})"></div>
+	<div class="input_item_body">
+		<input type="number" th:id="${field_name}" th:name="${field_name}" th:value="${value}" th:errorclass="field_error" />
+		<ul th:replace="fragments/input::field_error_list(${field_name})"></ul>
+	</div>
+</div>
+
+<div th:fragment="date(field_name, label, value)" class="input_item">
+	<div th:replace="fragments/input::item_label(${label}, ${field_name})"></div>
+	<div class="input_item_body">
+		<input type="date" th:id="${field_name}" th:name="${field_name}"
+				th:value="${value}? ${#calendars.format(value,'yyyy-MM-dd')} : ''" th:errorclass="field_error" />
+		<ul th:replace="fragments/input::field_error_list(${field_name})"></ul>
+	</div>
+</div>
+
+<div th:fragment="select(field_name, label, value, items_map)" class="input_item">
+	<div th:replace="fragments/input::item_label(${label}, ${field_name})"></div>
+	<div class="input_item_body">
+		<select th:id="${field_name}" th:name="${field_name}" th:errorclass="field_error">
+			<option th:each="item : ${items_map}" th:value="${item.key}" th:selected="${item.key == value}" th:text="${item.value}"></option>
+		</select>
+		<ul th:replace="fragments/input::field_error_list(${field_name})"></ul>
+	</div>
+</div>
+
+</html>

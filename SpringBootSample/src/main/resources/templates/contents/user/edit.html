@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/layout">
+<body>
+	<div layout:fragment="partial">
+		<form action="#" th:action="@{/regist}" th:object="${user}" method="post">
+			<input type="hidden" th:field="*{id}" />
+			<input type="hidden" th:field="*{version}" />
+			<div th:replace="fragments/input::text('accountId', 'アカウントID', ${user.accountId})"></div>
+			<div th:replace="fragments/input::password('password', 'パスワード', ${user.password})"></div>
+			<div th:replace="fragments/input::text('name', '名前', ${user.name})"></div>
+			<div th:replace="fragments/input::select('sex', '性別', ${user.sex}, ${sex_items_map})"></div>
+			<div th:replace="fragments/input::date('birthday', '生年月日', ${user.birthday})"></div>
+			<div th:replace="fragments/input::text('mail', 'メール', ${user.mail})"></div>
+			<div th:replace="fragments/input::text('tel', '電話', ${user.tel})"></div>
+			<div th:replace="fragments/input::submit('登録')"></div>
+		</form>
+	</div>
+</body>
+</html>
