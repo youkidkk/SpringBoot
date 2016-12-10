@@ -1,19 +1,7 @@
-/.gradle/
-/.settings/
-/bin/
-/build/
-/logs/*
-/.classpath
-/.project
-/.checkstyle
-/*~
+/.gradle
+/bin
+/build
 
-/**/.gradle/
-/**/.settings/
-/**/bin/
-/**/build/
-/**/logs/*
-/**/.classpath
-/**/.project
-/**/.checkstyle
-/**/*~
+/**/.gradle
+/**/bin
+/**/build
