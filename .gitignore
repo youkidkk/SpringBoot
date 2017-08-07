@@ -1,7 +1,22 @@
-/.gradle
-/bin
-/build
+# 全ディレクトリ対象
+/**/.gradle/
+/**/.idea/
+/**/.settings/
+/**/bin/
+/**/build/
+/**/doc/
+/**/logs/
+/**/tmp/
+/**/tmptest/
+/**/.checkstyle
+/**/.classpath
+/**/.project
+/**/gradlew*
+/**/*~
 
-/**/.gradle
-/**/bin
-/**/build
+# ルート直下のサブディレクトリのみ
+/*/gradle/
+
+# Gradleラッパー関連
+/**/gradle/wrapper/
+/**/gradlew**
