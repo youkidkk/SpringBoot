@@ -13,26 +13,26 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		// css, js, imagesは匿名アクセスOK
-		http.authorizeRequests()
-				.antMatchers("/css/**", "/js/**", "/images/**").permitAll()
-				// ADMIN roleじゃないと/adminには入れない
-				.antMatchers("/admin").hasRole("ADMIN")
-				// それ以外は匿名アクセス禁止
-				.anyRequest().authenticated();
-		// ログインは/loginでおこなってパラメータはusernameとpassword
-		http.formLogin().loginPage("/login")
-				.usernameParameter("username")
-				.passwordParameter("password")
-				.permitAll().and();
-		// ログアウトは/logout
-		http.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/login")
-				.deleteCookies("JSESSIONID")
-				.invalidateHttpSession(true).permitAll();
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // css, js, imagesは匿名アクセスOK
+        http.authorizeRequests()
+                .antMatchers("/css/**", "/js/**", "/images/**").permitAll()
+                // ADMIN roleじゃないと/adminには入れない
+                .antMatchers("/admin").hasRole("ADMIN")
+                // それ以外は匿名アクセス禁止
+                .anyRequest().authenticated();
+        // ログインは/loginでおこなってパラメータはusernameとpassword
+        http.formLogin().loginPage("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .permitAll().and();
+        // ログアウトは/logout
+        http.logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true).permitAll();
+    }
 
 }

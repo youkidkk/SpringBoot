@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layouts/layout">
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/layout">
 <body>
-	<div layout:fragment="partial">
-		<div class="list">
-			<div class="list_operation">
-				<a th:href="@{/create}">新規作成</a>
-			</div>
-			<table class="list">
-				<tr>
-					<th>ID</th>
-					<th>アカウントID</th>
-					<th>名前</th>
-					<th>性別</th>
-					<th>生年月日</th>
-					<th>年齢</th>
-					<th>作成日時</th>
-					<th>更新日時</th>
-					<th>&lt;操作&gt;</th>
-				</tr>
-				<tr th:each="user : ${users}">
-					<td th:text="${user.id}" />
-					<td th:text="${user.accountId}" />
-					<td th:text="${user.name}" />
-					<td th:text="${sex_items_map.get(user.sex)}" />
-					<td th:text="${#calendars.format(user.birthday,'yyyy/MM/dd')}" />
-					<td th:text="${user.age}" />
-					<td th:text="${#calendars.format(user.created,'yyyy/MM/dd HH:mm:ss.SSS')}" />
-					<td th:text="${#calendars.format(user.updated,'yyyy/MM/dd HH:mm:ss.SSS')}" />
-					<td>
-						<a th:href="@{'/edit/' + ${user.id}}">編集</a>
-						<a th:href="@{'/delete/' + ${user.id}}">削除</a>
-					</td>
-				</tr>
-			</table>
-			<div th:replace="fragments/common::pagination(${page}, ${max_page})"></div>
-		</div>
-	</div>
+    <div layout:fragment="partial">
+        <div class="list">
+            <div class="list_operation">
+                <a th:href="@{/create}">新規作成</a>
+            </div>
+            <table class="list">
+                <tr>
+                    <th>ID</th>
+                    <th>アカウントID</th>
+                    <th>名前</th>
+                    <th>性別</th>
+                    <th>生年月日</th>
+                    <th>年齢</th>
+                    <th>作成日時</th>
+                    <th>更新日時</th>
+                    <th>&lt;操作&gt;</th>
+                </tr>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}" />
+                    <td th:text="${user.accountId}" />
+                    <td th:text="${user.name}" />
+                    <td th:text="${sex_items_map.get(user.sex)}" />
+                    <td th:text="${#calendars.format(user.birthday,'yyyy/MM/dd')}" />
+                    <td th:text="${user.age}" />
+                    <td th:text="${#calendars.format(user.created,'yyyy/MM/dd HH:mm:ss.SSS')}" />
+                    <td th:text="${#calendars.format(user.updated,'yyyy/MM/dd HH:mm:ss.SSS')}" />
+                    <td>
+                        <a th:href="@{'/edit/' + ${user.id}}">編集</a>
+                        <a th:href="@{'/delete/' + ${user.id}}">削除</a>
+                    </td>
+                </tr>
+            </table>
+            <div th:replace="fragments/common::pagination(${page}, ${max_page})"></div>
+        </div>
+    </div>
 </body>
 </html>

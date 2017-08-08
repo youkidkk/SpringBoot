@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SampleComponent {
 
-	public void exec() {
-		Logger logger = LoggerFactory.getLogger(this.getClass());
-		logger.error("SampleComponent executed!!!");
-	}
+    public void exec() {
+        Logger logger = LoggerFactory.getLogger(this.getClass());
+        logger.error("SampleComponent executed!!!");
+    }
 
 }

@@ -11,17 +11,17 @@ import org.thymeleaf.TemplateEngine;
 @Configuration
 public class ThymeleafConfig {
 
-	/** テンプレートエンジン */
-	@Autowired
-	public TemplateEngine templateEngine;
+    /** テンプレートエンジン */
+    @Autowired
+    public TemplateEngine templateEngine;
 
-	/**
-	 * ダイアレクト追加
-	 * @return テンプレートエンジン
-	 */
-	@Bean
-	public TemplateEngine addDialect() {
-		this.templateEngine.addDialect(new CustomExpressionDialect());
-		return this.templateEngine;
-	}
+    /**
+     * ダイアレクト追加
+     * @return テンプレートエンジン
+     */
+    @Bean
+    public TemplateEngine addDialect() {
+        this.templateEngine.addDialect(new CustomExpressionDialect());
+        return this.templateEngine;
+    }
 }
