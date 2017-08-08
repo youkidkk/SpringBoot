@@ -1,3 +1,4 @@
 include 'SpringBootAjaxSample'
 include 'SpringBootDiSample'
-include 'SpringBootSample'
+include 'SpringBootMvcSample'
+include 'SpringBootTaskSample'
