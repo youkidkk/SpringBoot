@@ -14,26 +14,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 public class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
-	/** ユーザー情報を取得するサービス */
-	@Autowired
-	UserDetailsService userDetailsService;
 
-	/**
-	 * パスワードエンコーダー
-	 * @return パスワードエンコーダー
-	 */
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    /** ユーザー情報を取得するサービス */
+    @Autowired
+    UserDetailsService userDetailsService;
 
-	/**
-	 * (非 Javadoc)
-	 * @see org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter#init(org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder)
-	 */
-	@Override
-	public void init(AuthenticationManagerBuilder auth) throws Exception {
-		// ユーザーの情報の取得方法とパスワードのエンコード方式を設定
-		auth.userDetailsService(this.userDetailsService).passwordEncoder(this.passwordEncoder());
-	}
+    /**
+     * パスワードエンコーダー
+     * @return パスワードエンコーダー
+     */
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * (非 Javadoc)
+     * @see org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter#init(org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder)
+     */
+    @Override
+    public void init(AuthenticationManagerBuilder auth) throws Exception {
+        // ユーザーの情報の取得方法とパスワードのエンコード方式を設定
+        auth.userDetailsService(this.userDetailsService).passwordEncoder(this.passwordEncoder());
+    }
 }

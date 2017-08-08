@@ -9,18 +9,18 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class Main {
 
-	@Autowired
-	SampleComponent component;
+    @Autowired
+    SampleComponent component;
 
-	public static void main(String[] args) {
-		try (ConfigurableApplicationContext ctx = SpringApplication.run(Main.class, args)) {
-			Main m = ctx.getBean(Main.class);
-			m.run(args);
-		}
-	}
+    public static void main(String[] args) {
+        try (ConfigurableApplicationContext ctx = SpringApplication.run(Main.class, args)) {
+            Main m = ctx.getBean(Main.class);
+            m.run(args);
+        }
+    }
 
-	public void run(String[] args) {
-		this.component.exec();
-	}
+    public void run(String[] args) {
+        this.component.exec();
+    }
 
 }

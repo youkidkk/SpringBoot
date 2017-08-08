@@ -1,140 +1,140 @@
 body {
-	max-width : 1260px;
-	margin-left : auto;
-	margin-right : auto;
-	padding-left : 10px;
-	padding-right : 10px;
+    max-width : 1260px;
+    margin-left : auto;
+    margin-right : auto;
+    padding-left : 10px;
+    padding-right : 10px;
 }
 
 h1 {
-	font-size : 18pt;
-	font-weight : bold;
-	background-color : #66aa66;
-	color : #ffffff;
-	padding : 3px;
+    font-size : 18pt;
+    font-weight : bold;
+    background-color : #66aa66;
+    color : #ffffff;
+    padding : 3px;
 }
 
 span.login_user_display {
-	font-weight : bold;
-	float: right;
+    font-weight : bold;
+    float: right;
 }
 
 p.msg {
-	border : solid 1px lightgray;
-	padding : 10px;
-	color : red;
-	font-weight : bold;
+    border : solid 1px lightgray;
+    padding : 10px;
+    color : red;
+    font-weight : bold;
 }
 
 div.list {
-	display : inline-block;
+    display : inline-block;
 }
 
 div.list_operation {
-	text-align : right;
-	margin : 5px;
+    text-align : right;
+    margin : 5px;
 }
 
 table.list {
-	border-collapse : collapse;
-	border : 1px solid #333;
+    border-collapse : collapse;
+    border : 1px solid #333;
 }
 
 table.list tr:nth-child(even) {
-	background-color : #ffffff;
+    background-color : #ffffff;
 }
 
 table.list tr:nth-child(odd) {
-	background-color : #eeffff;
+    background-color : #eeffff;
 }
 
 table.list th {
-	background-color : #66aa66;
-	color : white;
-	font-weight : bold;
-	text-align : center;
-	padding : 5px;
-	border-collapse : collapse;
-	border : 1px solid #333;
+    background-color : #66aa66;
+    color : white;
+    font-weight : bold;
+    text-align : center;
+    padding : 5px;
+    border-collapse : collapse;
+    border : 1px solid #333;
 }
 
 table.list td {
-	color : #003300;
-	padding : 3px;
-	border-collapse : collapse;
-	border : 1px solid #333;
+    color : #003300;
+    padding : 3px;
+    border-collapse : collapse;
+    border : 1px solid #333;
 }
 
 div.pagination {
-	margin : 5px auto;
-	text-align : center;
+    margin : 5px auto;
+    text-align : center;
 }
 
 .pagination_item {
-	display : inline-block;
-	border : 2px solid #339933;
-	min-width : 30px;
-	height : 30px;
-	text-align : center;
-	line-height : 30px;
-	font-weight : bold;
+    display : inline-block;
+    border : 2px solid #339933;
+    min-width : 30px;
+    height : 30px;
+    text-align : center;
+    line-height : 30px;
+    font-weight : bold;
 }
 
 .pagination_item.current {
-	text-decoration : none;
-	color : #339933;
-	background-color : #ddffdd;
+    text-decoration : none;
+    color : #339933;
+    background-color : #ddffdd;
 }
 
 .pagination_item.link {
-	text-decoration : none;
-	color : #f0f0f0;
-	background-color : #66aa66;
+    text-decoration : none;
+    color : #f0f0f0;
+    background-color : #66aa66;
 }
 
 .pagination_item.link : hover {
-	color : #339933;
-	background-color : #eeeeee;
+    color : #339933;
+    background-color : #eeeeee;
 }
 
 .pagination_item.no_link {
-	border : 1px solid #ffffff;
-	color : #339933;
-	background-color : #ffffff;
-	font-weight : normal;
+    border : 1px solid #ffffff;
+    color : #339933;
+    background-color : #ffffff;
+    font-weight : normal;
 }
 
 div.input_submit {
-	margin : 10px auto;
+    margin : 10px auto;
 }
 
 input.input_submit_body {
-	font-weight : bold;
+    font-weight : bold;
 }
 
 div.input_item {
-	margin : 10px auto;
+    margin : 10px auto;
 }
 
 div.input_item_label {
-	margin : 5px auto;
-	font-weight : bold;
+    margin : 5px auto;
+    font-weight : bold;
 }
 
 div.input_item_body {
-	margin-left : 15px;
+    margin-left : 15px;
 }
 
 input.field_error {
-	background-color : #ff8888;
+    background-color : #ff8888;
 }
 
 select.field_error {
-	background-color : #ff8888;
+    background-color : #ff8888;
 }
 
 ul.field_error_list {
-	margin : 0px;
-	color : #ff0000;
-	font-weight : bold;
+    margin : 0px;
+    color : #ff0000;
+    font-weight : bold;
 }
