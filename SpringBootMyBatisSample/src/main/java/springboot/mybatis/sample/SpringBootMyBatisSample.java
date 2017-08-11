@@ -16,7 +16,7 @@ public class SpringBootMyBatisSample implements CommandLineRunner {
     /**
      * ※ 重要
      * マッパーを @Autowired する場合、
-     * SpringBootApplication の配下のパッケージに配置すること。
+     * マッパーを @SpringBootApplication のクラスの配下のパッケージに配置すること。
      */
     @Autowired
     SampleDataMapper sampleDataMapper;
