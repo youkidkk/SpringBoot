@@ -1,8 +1,7 @@
-package springboot.task.sample;
+package springboot.task.sample.schedule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -13,7 +12,6 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings("javadoc")
 @SpringBootApplication
 @EnableScheduling
-@ImportResource("applicationContext.xml")
 public class ScheduleTaskSample {
 
     public static final DateTimeFormatter DATETIME_FORMAT = DateTimeFormatter
