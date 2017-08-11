@@ -13,11 +13,6 @@ import java.util.stream.IntStream;
 @SpringBootApplication
 public class SpringBootMyBatisSample implements CommandLineRunner {
 
-    /**
-     * ※ 重要
-     * マッパーを @Autowired する場合、
-     * マッパーを @SpringBootApplication のクラスの配下のパッケージに配置すること。
-     */
     @Autowired
     SampleDataMapper sampleDataMapper;
 

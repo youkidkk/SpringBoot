@@ -9,6 +9,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class Main {
 
+    /**
+     * ※ 重要
+     * Autowired する場合、対象は SpringBootApplication のクラスの配下に配置すること
+     */
     @Autowired
     SampleComponent component;
 
