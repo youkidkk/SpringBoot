@@ -1,7 +1,9 @@
 package springboot.mybatis.sample.domain;
 
+import lombok.Data;
+
 @SuppressWarnings("javadoc")
-@lombok.Data
+@Data
 public class SampleData {
 
     private int id;

@@ -13,11 +13,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
-jar {
-    baseName = 'SpringBootAjaxSample'
-    version = '0.0.1-SNAPSHOT'
-}
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -36,5 +31,4 @@ dependencies {
         'org.projectlombok:lombok:1.16.8'
     )
     runtime('com.h2database:h2')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
