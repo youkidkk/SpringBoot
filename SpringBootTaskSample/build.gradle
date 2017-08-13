@@ -22,7 +22,7 @@ repositories {
 
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework.boot:spring-boot-starter')
 }
 
 springBoot {
