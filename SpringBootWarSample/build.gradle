@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+/* ※ warプラグインを指定する */
+apply plugin: 'war'
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    /* ※ 追加 */
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+}
+
+/**
+ * 追加
+ * ここで指定したwarファイル名となり、コンテキストルートとなる
+ * 下記の設定だとURLは http://IP:Port/base-0.1/・・・ となる
+ */
+war {
+    baseName = 'base'
+    version =  '0.1'
+}

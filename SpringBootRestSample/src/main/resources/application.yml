@@ -1,0 +1,18 @@
+# spring.profiles.activeにデフォルトでアクティブなプロファイルを指定
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:h2:tcp://localhost/SpringBootRestSample
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    testOnBorrow: true
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 30000
+    minEvictableIdleTimeMillis: 1800000
+    validationQuery: SELECT 1 FROM DUAL
