@@ -1,5 +1,7 @@
 package springboot.task.sample.schedule.task;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -13,13 +15,15 @@ import springboot.task.sample.schedule.Util;
 @SuppressWarnings("javadoc")
 public class ScheduleTask {
 
+    private Logger logger = LoggerFactory.getLogger(ScheduleTask.class);
+
     // initialDelay で初回のディレイを指定
     // fixedRate で間隔を指定
     @Scheduled(initialDelay = 3000, fixedRate = 10000)
     public void task() {
-        Util.print("Schedule task running...");
+        this.logger.info("Schedule task running...");
         Util.sleep(5000);
-        Util.print("Schedule task end!!!");
+        this.logger.info("Schedule task end!!!");
     }
 
 }

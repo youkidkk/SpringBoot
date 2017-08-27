@@ -1,11 +1,12 @@
 package springboot.task.sample.schedule.task;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
-import springboot.task.sample.schedule.Util;
 
 import java.io.File;
 
@@ -13,6 +14,8 @@ import java.io.File;
 @EnableScheduling
 @SuppressWarnings("javadoc")
 public class EndMonitorTask {
+
+    private Logger logger = LoggerFactory.getLogger(ScheduleTask.class);
 
     @Autowired
     ThreadPoolTaskScheduler taskScheduler;
@@ -22,7 +25,7 @@ public class EndMonitorTask {
         File endFile = new File("end");
         if (endFile.exists()) {
             endFile.delete();
-            Util.print("Shutdown!!!");
+            this.logger.info("Shutdown!!!");
             this.taskScheduler.shutdown();
         }
     }
