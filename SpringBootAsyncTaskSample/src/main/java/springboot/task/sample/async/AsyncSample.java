@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.concurrent.Executor;
 import java.util.stream.IntStream;
 
 @SpringBootApplication
@@ -21,6 +20,9 @@ public class AsyncSample implements CommandLineRunner {
     @Autowired
     AsyncTaskSample asyncTaskSample;
 
+    @Autowired
+    ThreadPoolTaskExecutor threadPoolTaskExecutor;
+
     /**
      * (非 Javadoc)
      * @see org.springframework.boot.CommandLineRunner#run(java.lang.String[])
@@ -30,10 +32,11 @@ public class AsyncSample implements CommandLineRunner {
         IntStream.range(1, 10).forEach(i -> {
             this.asyncTaskSample.run(i);
         });
+        this.threadPoolTaskExecutor.shutdown();
     }
 
     @Bean(name = "threadPoolTaskExecutor")
-    public Executor threadPoolTaskExecutor() {
+    public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(3);
         executor.setMaxPoolSize(3);
