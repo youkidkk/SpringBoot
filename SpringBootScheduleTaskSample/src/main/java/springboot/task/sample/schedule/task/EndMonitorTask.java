@@ -26,6 +26,9 @@ public class EndMonitorTask {
     @Autowired
     ApplicationContext context;
 
+    /**
+     * 終了ファイルの存在を監視し、存在する場合にシャットダウンを行う。
+     */
     @Scheduled(initialDelay = 3000, fixedRate = 1000)
     public void monitor() {
         File endFile = new File("end");
@@ -34,7 +37,7 @@ public class EndMonitorTask {
             this.logger.info("Shutdown!!!");
             this.taskScheduler.shutdown();
 
-            Util.sleep(1000);
+            Util.sleep(3000);
             if (this.taskScheduler.getActiveCount() > 1) {
                 this.logger.error("Forced termination!!!");
                 SpringApplication.exit(this.context);
