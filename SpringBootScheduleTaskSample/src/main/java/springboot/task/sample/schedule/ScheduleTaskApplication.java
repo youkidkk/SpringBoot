@@ -29,6 +29,7 @@ public class ScheduleTaskApplication implements SchedulingConfigurer {
         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
         taskScheduler.setPoolSize(5);
         taskScheduler.setWaitForTasksToCompleteOnShutdown(true);
+//        taskScheduler.setAwaitTerminationSeconds(5000);
         return taskScheduler;
     }
 
