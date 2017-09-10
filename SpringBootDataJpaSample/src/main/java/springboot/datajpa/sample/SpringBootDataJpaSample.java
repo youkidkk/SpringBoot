@@ -26,14 +26,16 @@ public class SpringBootDataJpaSample implements CommandLineRunner {
     public void run(String... args) throws Exception {
         this.clearData();
 
-        this.addNovelist("Soseki Natsume", "Kokoro", "Bocchan", "Wagahai ha Neko dearu");
+        this.addNovelist("Soseki Natsume", "Kokoro", "Bocchan");
         this.addNovelist("Ogai Mori", "Mai Hime", "Utakata no Yume");
         this.addNovelist("Ryunosuke Akutagawa", "Rasho Mon", "Jigoku Hen");
 
-        Iterable<Novelist> novelists = this.novelistRepository.findAll();
-        for (Novelist novelist : novelists) {
-            System.out.println(novelist);
-        }
+        Novelist novelist = this.novelistRepository.findByName("Soseki Natsume");
+        System.out.println(novelist);
+        novelist.getNovels().add(new Novel("Wagahai ha Neko dearu", novelist));
+        this.novelistRepository.save(novelist);
+
+        this.printNovelists();
     }
 
     private void clearData() {
@@ -53,6 +55,10 @@ public class SpringBootDataJpaSample implements CommandLineRunner {
         novelist.setNovels(novels);
 
         this.novelistRepository.save(novelist);
+    }
+
+    private void printNovelists() {
+        this.novelistRepository.findAll().forEach(System.out::println);
     }
 
     public static void main(String[] args) {

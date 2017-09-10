@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,7 @@ public class Novelist {
     @GeneratedValue
     private Integer id;
 
+    @Column(unique = true)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL,
