@@ -1,5 +1,6 @@
 include 'SpringBootAjaxSample'
 include 'SpringBootAsyncTaskSample'
+include 'SpringBootDataJpaSample'
 include 'SpringBootDiSample'
 include 'SpringBootMvcSample'
 include 'SpringBootMyBatisSample'
