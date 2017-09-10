@@ -30,7 +30,11 @@ public class Novelist {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "novelist")
+    @OneToMany(cascade = CascadeType.ALL,
+            // select時に関連テーブルをまとめて取得する
+            fetch = FetchType.EAGER,
+            // Novel型の項目との関連付け
+            mappedBy = "novelist")
     private List<Novel> novels;
 
     public Novelist(String name) {

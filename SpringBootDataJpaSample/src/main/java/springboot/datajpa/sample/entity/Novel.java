@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "novelist")
+@ToString(exclude = "novelist") // 循環参照となるため、除外設定
 @SuppressWarnings("javadoc")
 public class Novel {
 
