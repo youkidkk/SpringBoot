@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @SuppressWarnings("javadoc")
 public class Novelist {
 
@@ -27,7 +30,7 @@ public class Novelist {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "novelist")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "novelist")
     private List<Novel> novels;
 
     public Novelist(String name) {

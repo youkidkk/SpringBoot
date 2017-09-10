@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -15,6 +17,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString(exclude = "novelist")
 @SuppressWarnings("javadoc")
 public class Novel {
 
@@ -24,7 +27,7 @@ public class Novel {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Novelist novelist;
 
     public Novel(String name, Novelist novelist) {
